@@ -67,7 +67,11 @@ class MusicLibraryController
     puts "Which song number would you like to play?"
     list_songs
     input = gets.to_i
-    binding.pry
+   songs = Song.all
+    
+  if (1..songs.length).include?(input)
+      song = Song.all.sort{ |a, b| a.name <=> b.name }[input - 1]
+    end
     
  end
  
